@@ -10,7 +10,10 @@ const { sms, downloadMediaMessage } = require('./lib/msg');
 const axios = require('axios');
 const { File } = require('megajs');
 const moment = require('moment-timezone');
+
 const ownerNumber = ['94787072548'];
+
+//------------------ Session ---------------------//
 
 if (!fs.existsSync(__dirname + '/session/creds.json')) {
     if (!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!');
@@ -19,7 +22,7 @@ if (!fs.existsSync(__dirname + '/session/creds.json')) {
     filer.download((err, data) => {
         if (err) throw err;
         fs.writeFile(__dirname + '/session/creds.json', data, () => {
-            console.log("Session downloaded ✅");
+            console.log("✅ QUEEN NETHU MD | Session downloaded");
         });
     });
 }
@@ -28,6 +31,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
 
+//------------------ Database ---------------------//
+
 async function connectToWA() {
     const connectDB = require('./lib/mongodb');
     connectDB();
@@ -35,8 +40,10 @@ async function connectToWA() {
     const { readEnv } = require('./lib/database');
     const config = await readEnv();
     const prefix = config.PREFIX;
-    console.log("Connecting QUEEN X MD ...");
+    console.log("✅ QUEEN NETHU MD | Connecting");
 
+//------------------ setting input ---------------------//
+   
     const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/session/');
     var { version } = await fetchLatestBaileysVersion();
     
@@ -86,41 +93,44 @@ async function connectToWA() {
                 connectToWA();
             }
         } else if (connection === 'open') {
-            console.log('😼 Installing Commands ... ');
+            console.log('✅ QUEEN NETHU MD | Installing Commands');
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() === ".js") {
                     require("./plugins/" + plugin);
                 }
             });
-            console.log('Command installed successfully ✅');
-            console.log('Bot connected to WhatsApp ✅');
-            let up = `*QUEEN X MD connected successfuly✅*
+            console.log('✅ QUEEN NETHU MD | Command installed successfully');
+            console.log('✅ QUEEN NETHU MD | Bot connected to WhatsApp');
+            let up = `*𝐐𝐔𝐄𝐄𝐍 𝐍𝐄𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐃𝐄 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 💛*
 
-*👾Hey I'm 𝘔𝘌𝘋𝘡 𝘔𝘋*
-
-*╭━━━━━━━━━━━◦●►*
-*│OWNER*: Nethmika Tech
+*╭─「 ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴍꜱɢ 」*
+*│OWNER*: ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ
 *│NUMBER*: +${ownerNumber}
-*│PREFIX*: [${config.PREFIX}]
-*╰━━━━━━━━━━━━━━━━━━━◦●►*
+*│PREFIX*: ${config.PREFIX}
+*╰───────────◈◈►*
 
-○ *Work Mode* : *${work}*
-○ *Auto Voice* : *${autoVoice}*
-○ *Auto Status* : *${autoStatus}*
-○ *Auto React* : *${autoreact}*
-○ *AI Chat Bot* : *${AI_CHAT_BOT}*
-○ *Owner React* : *${OWNER_REACT}*
-○ *Auto Bio* : *${autoBioEnabled}*
-○ *Auto Typing* : *${AutoTyping}*
-○ *Auto Read Command* : *${AUTO_READ_CMD}*
-○ *Auto Block 212* : *${AUTO_BLock_212}*
-○ *Auto Kick 212* : *${AUTO_KICK_212}*
-○ *Welcome* : *${WELCOME}*
+*╭──────────◈◈►*
+*│🎗️ SETTING LIST*
+*│   ───────*
+*│ 1*   *Work Tipe* : *${work}*
+*│ 2*   *Auto Voice* : *${autoVoice}*
+*│ 3*   *Auto Status* : *${autoStatus}*
+*│ 4*   *Auto React* : *${autoreact}*
+*│ 5*   *Owner React* : *${OWNER_REACT}*
+*│ 6*   *Auto Bio* : *${autoBioEnabled}*
+*│ 7*   *Auto Typing* : *${AutoTyping}*
+*│ 8*   *Auto Read Command* : *${AUTO_READ_CMD}*
+*│ 9*   *Auto Block 212* : *${AUTO_BLock_212}*
+*│ 10*  *Auto Kick 212* : *${AUTO_KICK_212}*
+*│ 11*  *Welcome* : *${WELCOME}*
+*╰───────────◈◈►*
 
-> *© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ-ᴛᴇᴄʜ*`;
+> *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
+            
             conn.sendMessage(ownerNumber + "@s.whatsapp.net", {
-                image: { url: `https://pomf2.lain.la/f/hxp64475.jpg` },
+                image: { url: `https://pomf2.lain.la/f/5wapkl5g.jpg` },
                 caption: up
             });
         }
@@ -132,7 +142,7 @@ async function connectToWA() {
         mek = mek.messages[0];
         if (!mek.message) return;
         
-//========================================================================
+//-----------------------------------------------//
 
     const jid = mek.key.remoteJid;
     let messageContent;
@@ -149,16 +159,15 @@ async function connectToWA() {
 
     console.log("JID:", jid + "Message:", messageContent);
 
-//=================================================================================
-
         mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message;
 
+//------------------ Auto statas reed ---------------------//
+ 
         if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true") {
             await conn.readMessages([mek.key]);
         }
 
-//=================================== Auto Bio ==============================
-
+//------------------ Auto bio ---------------------//
 
 if (config.autoBioEnabled === 'true'){
     await
@@ -166,7 +175,8 @@ conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('As
 
 }
 
-//============================================================================= 
+//--------------------------------------------------//
+ 
 
         const m = sms(conn, mek);
         const type = getContentType(mek.message);
@@ -202,7 +212,8 @@ conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('As
             conn.sendMessage(from, { text: teks }, { quoted: mek });
         };
 
-        //==================================================================================================
+        //------------------ Button ---------------------//
+
         
         conn.sendButtonMessage = async (jid, buttons, opts = {}) => {
   
@@ -316,7 +327,7 @@ conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('As
                 }
             });
 
-        //==================================================================================================
+        //---------------------------------------------------------//
 
         conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
             let mime = '';
@@ -339,7 +350,9 @@ conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('As
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options });
             }
         };
-//===================================Auto Recct=========================================
+
+//------------------ Auto react ---------------------//
+
         /*
         if (config.AUTO_REACT === 'true') { 
     if (isReact) return;
@@ -361,7 +374,8 @@ if (!isReact && senderNumber !== botNumber) {
     }
 }
 */
-//===================================Owner React=========================================
+
+//------------------ Owner react ---------------------//
 
         if (config.OWNER_REACT === "true") {
             if (senderNumber.includes(ownerNumber)) {
@@ -370,25 +384,27 @@ if (!isReact && senderNumber !== botNumber) {
             }
         }
 
-//===================================Work Type========================================= 
+//------------------ Work tipe ---------------------//
+
 
         if (!isOwner && config.MODE === "private") return;
         if (!isOwner && isGroup && config.MODE === "inbox") return;
         if (!isOwner && !isGroup && config.MODE === "groups") return;
 
-//==========================Auto Read============================
+//------------------ Auto read cmd ---------------------//
 
 if (isCmd && config.AUTO_READ_CMD === "true") {
     await conn.readMessages([mek.key]) 
 }
 
-//==========================Auto Typing============================
+//------------------ Auto tipping ---------------------//
 
 if (isCmd && config.AUTO_TIPPING === "true") {
     await conn.sendPresenceUpdate('composing', from)
 }
 
-//==================================================================
+//------------------------------------------------------//
+
         const events = require('./command');
         const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
 
@@ -473,44 +489,8 @@ if (isCmd && config.AUTO_TIPPING === "true") {
         } else return jid;
     };
 
-//==================================================auto status===========================================================
-            const statesender = ["save", "Save", "nethu", "Nethu", "send", "dapan", "dapn", "ewhahn", "ewanna", "danna", "evano", "evpn", "ewano"];
+//------------------ Welcome ---------------------//
 
-for (let word of statesender) {
-    if (typeof body === 'string' && body.toLowerCase().includes(word)) { // Check if body is a string
-        if (!body.includes('tent') && !body.includes('docu') && !body.includes('https')) {
-            
-            // Ensure quoted is valid
-            if (quoted && quoted.download) {
-                let quotedMessage = await quoted.download(); // Ensure quoted.download() works
-                if (quotedMessage) {
-                    if (quoted.imageMessage) {
-                        await conn.sendMessage(from, { image: quotedMessage }, { quoted: mek });
-                    } else if (quoted.videoMessage) {
-                        await conn.sendMessage(from, { video: quotedMessage }, { quoted: mek });
-                    } else if (quoted.audioMessage) {
-                        await conn.sendMessage(from, { audio: quotedMessage }, { quoted: mek });
-                    } else {
-                        console.log('Unsupported media type:', quotedMessage.mimetype || 'Unknown');
-                    }
-                } else {
-                    console.log('Error downloading quoted message media.');
-                }
-            } else {
-                console.log('Quoted message is invalid or missing.');
-            }
-            
-            break; // Exit the loop after sending the message
-        }
-    }
-}
-
-
-
-//------------------------------antibad-----------------------------------//
-
-
-//=============================================================-
 
     
     if (config.WELCOME === "true") {
@@ -536,7 +516,6 @@ for (let word of statesender) {
 }
 
 connectToWA(); 
-
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
