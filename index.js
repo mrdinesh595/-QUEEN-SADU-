@@ -439,11 +439,10 @@ if (isCmd && config.AUTO_TIPPING === "true") {
 
     });
 
-
+/*
     function handleCommands(conn, mek, m, context) {
-        const events = require('./command');
         const { isCmd, command, from, quoted, body } = context;
-    /*    const events = require('./command');*/
+       const events = require('./command');
         const cmdName = isCmd ? command : false;
     
         try {
@@ -458,7 +457,7 @@ if (isCmd && config.AUTO_TIPPING === "true") {
                     }
                     cmd.function(conn, mek, m, context);
                 }
-            }
+            }*/
 
             events.commands.forEach(async (command) => {
                 if (body && command.on === "body") {
