@@ -8,10 +8,10 @@ const imgUrl = 'https://pomf2.lain.la/f/hxp64475.jpg'; // This image URL seems u
 //-----------------------------------------------ALive-----------------------------------------------
 
 cmd({
-    pattern: "info",
+    pattern: "alive",
     desc: "Check bot online or no.",
     category: "general",
-    react: "👾",
+    react: "🎀",
     filename: __filename
 },
 async (conn, mek, m, { from, prefix, pushname, reply }) => {
@@ -40,9 +40,8 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
 > *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
 
         const sentMsg = await conn.sendMessage(from, {
-            image: config.LOGO, // Assuming LOGO path is set in config.js
+            image: { url: imgUrl },
             caption: snm,
-            footer: config.FOOTER,
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: false,
@@ -54,7 +53,7 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
                     thumbnailUrl: '',  // Corrected the URL format
                     sourceUrl: '[https://www.youtube.com/@SlNethuMax](https://www.youtube.com/@SlNethuMax)',
                     mediaType: 1,
-                    title: '𝐐𝐔𝐄𝐄𝐍 𝐍𝐄𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄 𝐁𝐎𝐓 ',
+                    title: '𝐐𝐔𝐄𝐄𝐍 𝐍𝐄𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄 𝐁𝐎𝐓 💛',
                     body: 'ᴀ Qᴜᴇᴇɴ x ᴍᴅ ᴡᴀ ʙᴏᴛ ᴅᴇꜱᴇᴅ ᴏɴ ʙᴀɪʏʟᴇꜱ',
                     renderLargerThumbnail: false
                 }
