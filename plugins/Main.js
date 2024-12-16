@@ -25,7 +25,7 @@ async (conn, mek, m, { from, prefix, pushname, reply }) => {
 
         // Create the text response with system details
         let monspace = '```';
-        const snm = `${monspace} Hello ${pushname}, I'm alive now ${monspace}
+        const snm = `👋 ${monspace} Hello ${pushname}, I'm alive now ${monspace}
 
 _*This whatsapp bot is made for your easy use. This bot is currently active🪄*_
 
@@ -36,7 +36,8 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
 
 *☘️ Follow our channel:* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A
 
-*Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
+*Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ*
+*ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
 
         // Send the message along with an image
         const sentMsg = await conn.sendMessage(from, {
@@ -74,7 +75,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const message = await conn.sendMessage(from, { text: '*📡  ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*' })
         const endTime = Date.now()
         const ping = endTime - startTime
-        await conn.sendMessage(from, { text: `*ᴘᴏɴɢ*: ${ping} *_ms_*` }, { quoted: message })
+        await conn.sendMessage(from, { text: `*ᴘᴏɴɢ*: ${ping} *_ᴍꜱ_*` }, { quoted: message })
     } catch (e) {
         console.log(e)
         reply(`${e}`)
@@ -85,23 +86,30 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 cmd({
     pattern: "system",
-    desc: "check up time",
-    category: "main",
-    react: "✅",
+    desc: "Check bot online or no.",
+    category: "general",
+    react: "📟",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+async (conn, mek, m, { from, prefix, pushname, reply }) => {
     try {
-        let snm = ` 
- *⏰ Runtime*:  ${runtime(process.uptime())}    
- *📟 Memory*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
- *📍 HostName*: ${os.hostname()}
- *👤 Owner*: ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ 
- *🎉 Version*: 1.0.0
-  `;
+        let hostname;
+        if (os.hostname().length == 12) hostname = 'replit';
+        else if (os.hostname().length == 36) hostname = 'heroku';
+        else if (os.hostname().length == 8) hostname = 'koyeb';
+        else hostname = os.hostname();
+
+        const sssf = `*QUEEN NETHU MD*
         
-        const sentMsg = await conn.sendMessage(from, {
-            caption: snm,
+🎉 *Version :* ${require("../package.json").version}
+🗃️ *Memory :* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
+⏱️ *Runtime :* ${runtime(process.uptime())}
+📍 *Platform :* ${hostname}
+👤 *Owner :* ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ
+`;
+
+        await conn.sendMessage(from, {
+            text: sssf,
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
@@ -131,18 +139,17 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         // Construct the bot status message
-        const snm = `*QEEN NETHU MD*
+        const botStatus = `*QUEEN NETHU MD*
         
 *╭───────────────◈◈►*
 *│ 👾 Bot Status: Online*
 *│ 📆 Date: ${new Date().toLocaleDateString()}*
 *│ ⏰ Time: ${new Date().toLocaleTimeString()}*
-*╰───────────────◈◈►
+*╰───────────────◈◈►*
 `;
 
-        // Ensure the 'quoted' parameter is correct (if there's any quoted message)
-        const sentMsg = await conn.sendMessage(from, {
-            caption: snm,
+        await conn.sendMessage(from, {
+            text: botStatus,
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
@@ -151,10 +158,11 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                     newsletterJid: "120363322195409882@newsletter",
                 }
             }
-        }, { quoted: quoted });
+        }, { quoted: mek });
 
     } catch (e) {
-        reply('*Error !!*');
         console.log(e);
+        reply(`Error: ${e.message}`);
     }
 });
+
