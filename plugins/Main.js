@@ -1,5 +1,6 @@
 const { cmd, commands } = require('../command');
 const config = require('../config');
+const {readEnv} = require('../lib/database');
 const os = require('os');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, fetchJson, runtime, sleep } = require('../lib/functions');
 const imgUrl = 'https://pomf2.lain.la/f/hxp64475.jpg'; // This image URL seems unnecessary
