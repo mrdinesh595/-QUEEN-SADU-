@@ -26,31 +26,30 @@ async (conn, mek, m, { from, prefix, pushname, reply }) => {
         let monspace = '```';
         const snm = `${monspace} Hello ${pushname}, I'm alive now${monspace}
 
+_*This whatsapp bot is made for your easy use. This bot is currently active🪄*_
+
 > *Version:* ${require("../package.json").version}
 > *Memory:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
 > *Runtime:* ${runtime(process.uptime())}
 > *Platform:* ${hostname}
 
-_*This whatsapp bot is made for your easy use. This bot is currently active🪄*_
+*☘️ Follow our chanal :* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A](https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A)
 
-*☘️ Follow our chanal :*
-[https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A](https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A)
-
-> *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*
-> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
+*Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
 
         const sentMsg = await conn.sendMessage(from, {
-            image: { url: imgUrl },
+          /*  image: { url: imgUrl },*/
+            image: {url: config.LOGO},
             caption: snm,
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: false,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: '𝐐 𝐔 𝐄 𝐄 𝐍  𝐍𝐄𝐓𝐇𝐔  𝐌 𝐃',
+                    newsletterName: '𝐐 𝐔 𝐄 𝐄 𝐍  𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐃',
                     newsletterJid: "120363322195409882@newsletter",
                 },
                 externalAdReply: {
-                    thumbnailUrl: '',  // Corrected the URL format
+                    thumbnailUrl: '',  
                     sourceUrl: '[https://www.youtube.com/@SlNethuMax](https://www.youtube.com/@SlNethuMax)',
                     mediaType: 1,
                     title: '𝐐𝐔𝐄𝐄𝐍 𝐍𝐄𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄 𝐁𝐎𝐓 💛',
@@ -59,6 +58,7 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
                 }
             }
         }, { qouted: mek });
+        
     } catch (e) {
         reply('*Error !!*')
         console.log(e)
