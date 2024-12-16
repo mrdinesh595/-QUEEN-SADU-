@@ -8,10 +8,10 @@ const imgUrl = 'https://pomf2.lain.la/f/hxp64475.jpg'; // This image URL seems u
 //-----------------------------------------------ALive-----------------------------------------------
 
 cmd({
-    pattern: "alive",
+    pattern: "info",
     desc: "Check bot online or no.",
     category: "general",
-    react: "",
+    react: "👾",
     filename: __filename
 },
 async (conn, mek, m, { from, prefix, pushname, reply }) => {
