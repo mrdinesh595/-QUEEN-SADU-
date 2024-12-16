@@ -415,7 +415,7 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
 }
 
 //------------------ Auto mode ---------------------//
-
+/*
 if (config.ANTI_LINK == "true"){
         if (!isOwner && isGroup && isBotAdmins ) {   
         if (body.match(`chat.whatsapp.com`)) {
@@ -425,7 +425,7 @@ if (config.ANTI_LINK == "true"){
             
         await conn.sendMessage(from, { delete: mek.key })  
         }}}
-  
+  */
  if (config.ANTI_BOT == "true"){
   if ( isGroup && !isAdmins && !isMe && !isOwner && isBotAdmins ) {
   if ( mek.id.startsWith("BAE") ) {
