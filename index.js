@@ -214,7 +214,7 @@ conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('As
 
         //------------------ Button ---------------------//
 
-        
+        /*
         conn.sendButtonMessage = async (jid, buttons, opts = {}) => {
   
         let header;
@@ -326,6 +326,7 @@ conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('As
                     }
                 }
             });
+*/
 
         //---------------------------------------------------------//
 
