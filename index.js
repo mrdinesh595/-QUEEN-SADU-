@@ -416,20 +416,15 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
 
 //------------------ Auto mode ---------------------//
 
-const bad = await fetchJson(`https://raw.githubusercontent.com/KING-RASHMIKA/AutoFunction/refs/heads/main/bad_words.json`)
-if (config.ANTI_BAD == "true"){
-  if (!isAdmins && !isMe) {
-  for (any in bad){
-  if (body.toLowerCase().includes(bad[any])){  
-    if (!body.includes('tent')) {
-      if (!body.includes('docu')) {
-        if (!body.includes('https')) {
-  if (groupAdmins.includes(sender)) return 
-  if (mek.key.fromMe) return   
-  await conn.sendMessage(from, { delete: mek.key })  
-  await conn.sendMessage(from , { text: '*Bad word detected..!*'})
-//  await conn.groupParticipantsUpdate(from,[sender], 'remove')
-  }}}}}}}
+if (config.ANTI_LINK == "true"){
+        if (!isOwner && isGroup && isBotAdmins ) {   
+        if (body.match(`chat.whatsapp.com`)) {
+            
+        if (isMe) return await reply("Link Derect but i can't Delete link")
+        if(groupAdmins.includes(sender)) return
+            
+        await conn.sendMessage(from, { delete: mek.key })  
+        }}}
   
  if (config.ANTI_BOT == "true"){
   if ( isGroup && !isAdmins && !isMe && !isOwner && isBotAdmins ) {
