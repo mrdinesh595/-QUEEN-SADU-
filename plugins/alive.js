@@ -41,13 +41,6 @@ async (conn, mek, m, { from, prefix, pushname, reply }) => {
 
 > *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ x ᴍᴅ*
 > *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
-
-        await conn.sendMessage(from, {
-            audio: { url: 'https://github.com/sl-nethu-max/QUEEN-X-MD-DATABASE/raw/refs/heads/main/media/alive%20.mp3' },
-            mimetype: 'audio/mp4',
-            ptt: true,
-        }, { qouted: mek });
-
   
         const sentMsg = await conn.sendMessage(from, {
             image: { url: imgUrl }, 
