@@ -171,7 +171,7 @@ async function connectToWA() {
 
 if (config.autoBioEnabled === 'true'){
     await
-conn.updateProfileStatus(`🧚‍♂️ QUEEN X MD 🧚‍♂️ ${moment.tz('Asia/Colombo').format('HH:mm:ss')}`)
+conn.updateProfileStatus(`QUEEN NETHU MD ${moment.tz('Asia/Colombo').format('HH:mm:ss')}`)
 
 }
 
@@ -268,7 +268,19 @@ if (!isReact && senderNumber !== botNumber) {
                 m.react("💃");
             }
         }
+        
+//------------------ Banned user ---------------------//
 
+        const banbn = await fetchJson(`https://raw.githubusercontent.com/athulakumara604/ASITHA-MD-DATABASE/refs/heads/main/Banduser.json`)
+const plynYnna = banbn.split(",")
+const isBanUser = [ ...plynYnna ]
+      .map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net")
+      .includes(sender)
+
+const isCreator = ["94704227534,94787072548"]
+      .map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net")
+      .includes(sender)    
+        
 //------------------ Work tipe ---------------------//
 
 
@@ -332,10 +344,54 @@ if (isCmd && config.AUTO_TIPPING === "true") {
         } else return jid;
     };
 
-//------------------ Welcome ---------------------//
-
+//------------------ Status save ---------------------//
 
     
+if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || body === "ewpn" || body === "Dapan" || body === "dapan" || body === "oni" || body === "Oni" || body === "save" || body === "Save" || body === "ewanna" || body === "Ewanna" || body === "ewam" || body === "Ewam" || body === "sv" || body === "Sv"|| body === "දාන්න"|| body === "එවම්න"){
+    // if(!m.quoted) return reply("*Please Mention status*")
+    const data = JSON.stringify(mek.message, null, 2);
+    const jsonData = JSON.parse(data);
+    const isStatus = jsonData.extendedTextMessage.contextInfo.remoteJid;
+    if(!isStatus) return
+
+    const getExtension = (buffer) => {
+        const magicNumbers = {
+            jpg: 'ffd8ffe0',
+            png: '89504e47',
+            mp4: '00000018',
+        };
+        const magic = buffer.toString('hex', 0, 4);
+        return Object.keys(magicNumbers).find(key => magicNumbers[key] === magic);
+    };
+
+    if(m.quoted.type === 'imageMessage') {
+        var nameJpg = getRandom('');
+        let buff = await m.quoted.download(nameJpg);
+        let ext = getExtension(buff);
+        await fs.promises.writeFile("./" + ext, buff);
+        const caption = m.quoted.imageMessage.caption;
+        await conn.sendMessage(from, { image: fs.readFileSync("./" + ext), caption: caption });
+    } else if(m.quoted.type === 'videoMessage') {
+        var nameJpg = getRandom('');
+        let buff = await m.quoted.download(nameJpg);
+        let ext = getExtension(buff);
+        await fs.promises.writeFile("./" + ext, buff);
+        const caption = m.quoted.videoMessage.caption;
+        let buttonMessage = {
+            video: fs.readFileSync("./" + ext),
+            mimetype: "video/mp4",
+            fileName: `${m.id}.mp4`,
+            caption: "*ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*/n> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*" ,
+            headerType: 4
+        };
+        await conn.sendMessage(from, buttonMessage,{
+            quoted: mek
+        });
+    }
+}
+    
+//------------------ Welcome ---------------------//
+
     if (config.WELCOME === "true") {
         conn.ev.on('group-participants.update', async (anu) => {
             const metadata = await conn.groupMetadata(anu.id);
@@ -357,6 +413,76 @@ if (isCmd && config.AUTO_TIPPING === "true") {
         });
     }
 }
+
+//------------------ Auto mode ---------------------//
+
+if (config.ALLWAYS_OFFLINE === "true") {
+        conn.sendPresenceUpdate('unavailable'); // Sets the bot's last seen status
+    }
+
+    if (senderNumber.startsWith('212') && config.BAD_NO_BLOCK === "true") {
+        console.log(`Blocking number +212${senderNumber.slice(3)}...`);
+
+        // Action: Either block the user or remove them from a group
+        if (from.endsWith('@g.us')) {
+            // If in a group, remove the user
+            await conn.groupParticipantsUpdate(from, [sender], 'remove');
+            await conn.sendMessage(from, { text: 'User with +212 number detected and removed from the group.' });
+        } else {
+            // If in a private chat, block the user
+            await conn.updateBlockStatus(sender, 'block');
+            console.log(`Blocked +212${senderNumber.slice(3)} successfully.`);
+        }
+
+        return; // Stop further processing of this message
+    }
+
+    if (config.ANTI_LINK == "true"){
+        if (!isOwner && isGroup && isBotAdmins ) {   
+        if (body.match(`chat.whatsapp.com`)) {
+            
+        if (isMe) return await reply("Link Derect but i can't Delete link")
+        if(groupAdmins.includes(sender)) return
+            
+        await conn.sendMessage(from, { delete: mek.key })  
+        }}}
+
+    
+const bad = await fetchJson(`https://raw.githubusercontent.com/KING-RASHMIKA/AutoFunction/refs/heads/main/bad_words.json`)
+if (config.ANTI_BAD == "true"){
+  if (!isAdmins && !isMe) {
+  for (any in bad){
+  if (body.toLowerCase().includes(bad[any])){  
+    if (!body.includes('tent')) {
+      if (!body.includes('docu')) {
+        if (!body.includes('https')) {
+  if (groupAdmins.includes(sender)) return 
+  if (mek.key.fromMe) return   
+  await conn.sendMessage(from, { delete: mek.key })  
+  await conn.sendMessage(from , { text: '*Bad word detected..!*'})
+//  await conn.groupParticipantsUpdate(from,[sender], 'remove')
+  }}}}}}}
+  
+ if (config.ANTI_BOT == "true"){
+  if ( isGroup && !isAdmins && !isMe && !isOwner && isBotAdmins ) {
+  if ( mek.id.startsWith("BAE") ) {
+await conn.sendMessage(from, { text: "❌ ```Another Bot's message Detected :``` 📚 *Removed By QUEEN NETHU MD* ❗\nAnti Bot System on..." })
+if ( config.ANTI_BOT == "true" && isBotAdmins ) {
+await conn.sendMessage(from, { delete: mek.key })
+await conn.groupParticipantsUpdate(from,[sender], 'remove')
+  }}
+    if ( mek.id.startsWith("QUEENAMDI") ) {
+await conn.sendMessage(from, { text: "❌ ```Another Bot's message Detected :``` *💃 QUEEN NETHU MD* ❗\n*Removed By QUEEN NETHU MD* ❗\nAnti Bot System on..." })
+if ( config.ANTI_BOT == "true" && isBotAdmins ) {
+await conn.sendMessage(from, { delete: mek.key })
+await conn.groupParticipantsUpdate(from,[sender], 'remove')
+  }}
+
+  
+  }
+  }
+
+//---------------------------------------------------//
 
 connectToWA(); 
 
