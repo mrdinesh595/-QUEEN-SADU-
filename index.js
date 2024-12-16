@@ -414,37 +414,6 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
     }
 }
 
-//------------------ Auto mode ---------------------//
-/*
-if (config.ANTI_LINK == "true"){
-        if (!isOwner && isGroup && isBotAdmins ) {   
-        if (body.match(`chat.whatsapp.com`)) {
-            
-        if (isMe) return await reply("Link Derect but i can't Delete link")
-        if(groupAdmins.includes(sender)) return
-            
-        await conn.sendMessage(from, { delete: mek.key })  
-        }}}
-  */
- if (config.ANTI_BOT == "true"){
-  if ( isGroup && !isAdmins && !isMe && !isOwner && isBotAdmins ) {
-  if ( mek.id.startsWith("BAE") ) {
-await conn.sendMessage(from, { text: "❌ ```Another Bot's message Detected :``` 📚 *Removed By QUEEN NETHU MD* ❗\nAnti Bot System on..." })
-if ( config.ANTI_BOT == "true" && isBotAdmins ) {
-await conn.sendMessage(from, { delete: mek.key })
-await conn.groupParticipantsUpdate(from,[sender], 'remove')
-  }}
-    if ( mek.id.startsWith("QUEENAMDI") ) {
-await conn.sendMessage(from, { text: "❌ ```Another Bot's message Detected :``` *💃 QUEEN NETHU MD* ❗\n*Removed By QUEEN NETHU MD* ❗\nAnti Bot System on..." })
-if ( config.ANTI_BOT == "true" && isBotAdmins ) {
-await conn.sendMessage(from, { delete: mek.key })
-await conn.groupParticipantsUpdate(from,[sender], 'remove')
-  }}
-
-  
-  }
-  }
-
 //---------------------------------------------------//
 
 connectToWA(); 
