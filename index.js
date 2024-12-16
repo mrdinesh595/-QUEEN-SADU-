@@ -457,28 +457,7 @@ if (isCmd && config.AUTO_TIPPING === "true") {
                     }
                     cmd.function(conn, mek, m, context);
                 }
-            }*/
-
-    if (isCmd) {
-    const cmd =
-        events.commands.find(c => c.pattern === cmdName) ||
-        events.commands.find(c => c.alias && c.alias.includes(cmdName));
-
-    if (cmd) {
-        if (cmd.react) {
-            conn.sendMessage(from, { react: { text: cmd.react, key: mek.key } });
-        }
-
-        try {
-            cmd.function(conn, mek, m, context);
-        } catch (error) {
-            console.error('Error executing command:', error);
-            // Consider sending an error message to the user
-            conn.sendMessage(from, { text: 'An error occurred while processing your command.' });
-        }
-    }
-}
-
+            }
 
             events.commands.forEach(async (command) => {
                 if (body && command.on === "body") {
@@ -500,7 +479,7 @@ if (isCmd && config.AUTO_TIPPING === "true") {
         } catch (error) {
             console.error("[HANDLE COMMANDS ERROR] Command: " + cmdName + " | Error: " + error.message);
         }
-    }
+    }*/
     
     conn.decodeJid = (jid) => {
         if (!jid) return jid;
