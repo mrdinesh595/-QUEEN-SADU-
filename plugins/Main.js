@@ -3,7 +3,7 @@ const config = require('../config');
 const {readEnv} = require('../lib/database');
 const os = require('os');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, fetchJson, runtime, sleep } = require('../lib/functions');
-const imgUrl = 'https://pomf2.lain.la/f/hxp64475.jpg'; // This image URL seems unnecessary
+const imgUrl = 'https://pomf2.lain.la/f/5wapkl5g.jpg'; // This image URL seems unnecessary
 
 //-----------------------------------------------ALive-----------------------------------------------
 
@@ -38,21 +38,20 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
 *Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
 
         const sentMsg = await conn.sendMessage(from, {
-          /*  image: { url: imgUrl },*/
-            image: {url: config.LOGO},
+            image: { url: imgUrl },
             caption: snm,
             contextInfo: {
                 forwardingScore: 999,
-                isForwarded: false,
+                isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: '𝐐 𝐔 𝐄 𝐄 𝐍  𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐃',
+                    newsletterName: 'ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ',
                     newsletterJid: "120363322195409882@newsletter",
                 },
                 externalAdReply: {
                     thumbnailUrl: '',  
                     sourceUrl: '[https://www.youtube.com/@SlNethuMax](https://www.youtube.com/@SlNethuMax)',
                     mediaType: 1,
-                    title: '𝐐𝐔𝐄𝐄𝐍 𝐍𝐄𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄 𝐁𝐎𝐓 💛',
+                    title: '𝗤𝗨𝗘𝗘𝗡-𝗡𝗘𝗧𝗛𝗨-𝗠𝗗',
                     body: 'ᴀ Qᴜᴇᴇɴ x ᴍᴅ ᴡᴀ ʙᴏᴛ ᴅᴇꜱᴇᴅ ᴏɴ ʙᴀɪʏʟᴇꜱ',
                     renderLargerThumbnail: false
                 }
@@ -64,3 +63,25 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
         console.log(e)
     }
 });
+
+//------------------ Ping ---------------------//
+
+cmd({
+    pattern: "ping",
+    desc: "Check bot's response time.",
+    category: "main",
+    react: "✅",
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        const startTime = Date.now()
+        const message = await conn.sendMessage(from, { text: '*📡  ʀᴜɴɪɴɢ ʀᴇsᴘᴏɴᴅ...*' })
+        const endTime = Date.now()
+        const ping = endTime - startTime
+        await conn.sendMessage(from, { text: `*ᴘᴏɴɢ*: ${ping} *_ms_*` }, { quoted: message })
+    } catch (e) {
+        console.log(e)
+        reply(`${e}`)
+    }
+})
