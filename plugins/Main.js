@@ -88,7 +88,7 @@ cmd({
     pattern: "system",
     desc: "Check bot online or no.",
     category: "general",
-    react: "📟",
+    react: "✅",
     filename: __filename
 },
 async (conn, mek, m, { from, prefix, pushname, reply }) => {
