@@ -346,7 +346,7 @@ if (isCmd && config.AUTO_TIPPING === "true") {
 
 //------------------ Status save ---------------------//
 
-    
+  /*  
 if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || body === "ewpn" || body === "Dapan" || body === "dapan" || body === "oni" || body === "Oni" || body === "save" || body === "Save" || body === "ewanna" || body === "Ewanna" || body === "ewam" || body === "Ewam" || body === "sv" || body === "Sv"|| body === "දාන්න"|| body === "එවම්න"){
     // if(!m.quoted) return reply("*Please Mention status*")
     const data = JSON.stringify(mek.message, null, 2);
@@ -381,7 +381,7 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
             video: fs.readFileSync("./" + ext),
             mimetype: "video/mp4",
             fileName: `${m.id}.mp4`,
-            caption: "*ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*/n> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*" ,
+            caption: "*ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*" ,
             headerType: 4
         };
         await conn.sendMessage(from, buttonMessage,{
@@ -389,6 +389,7 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
         });
     }
 }
+*/
     
 //------------------ Welcome ---------------------//
 
