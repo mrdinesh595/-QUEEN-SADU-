@@ -416,38 +416,6 @@ if(body === "send" || body === "Send" || body === "Seve" || body === "Ewpm" || b
 
 //------------------ Auto mode ---------------------//
 
-if (config.ALLWAYS_OFFLINE === "true") {
-        conn.sendPresenceUpdate('unavailable'); // Sets the bot's last seen status
-    }
-
-    if (senderNumber.startsWith('212') && config.BAD_NO_BLOCK === "true") {
-        console.log(`Blocking number +212${senderNumber.slice(3)}...`);
-
-        // Action: Either block the user or remove them from a group
-        if (from.endsWith('@g.us')) {
-            // If in a group, remove the user
-            await conn.groupParticipantsUpdate(from, [sender], 'remove');
-            await conn.sendMessage(from, { text: 'User with +212 number detected and removed from the group.' });
-        } else {
-            // If in a private chat, block the user
-            await conn.updateBlockStatus(sender, 'block');
-            console.log(`Blocked +212${senderNumber.slice(3)} successfully.`);
-        }
-
-        return; // Stop further processing of this message
-    }
-
-    if (config.ANTI_LINK == "true"){
-        if (!isOwner && isGroup && isBotAdmins ) {   
-        if (body.match(`chat.whatsapp.com`)) {
-            
-        if (isMe) return await reply("Link Derect but i can't Delete link")
-        if(groupAdmins.includes(sender)) return
-            
-        await conn.sendMessage(from, { delete: mek.key })  
-        }}}
-
-    
 const bad = await fetchJson(`https://raw.githubusercontent.com/KING-RASHMIKA/AutoFunction/refs/heads/main/bad_words.json`)
 if (config.ANTI_BAD == "true"){
   if (!isAdmins && !isMe) {
