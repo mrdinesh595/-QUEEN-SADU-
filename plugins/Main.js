@@ -31,6 +31,7 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
 > *Version:* ${require("../package.json").version}
 > *Memory:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
 > *Runtime:* ${runtime(process.uptime())}
+> *Hostname:* ${os.hostname()}
 
 *☘️ Follow our chanal :* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A](https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A)
 
@@ -43,16 +44,8 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: 'ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ',
+                    newsletterName: '𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐀 𝐗  𝐘 𝐓',
                     newsletterJid: "120363322195409882@newsletter",
-                },
-                externalAdReply: {
-                    thumbnailUrl: '',  
-                    sourceUrl: '[https://www.youtube.com/@SlNethuMax](https://www.youtube.com/@SlNethuMax)',
-                    mediaType: 1,
-                    title: '𝗤𝗨𝗘𝗘𝗡-𝗡𝗘𝗧𝗛𝗨-𝗠𝗗',
-                    body: 'ᴀ Qᴜᴇᴇɴ x ᴍᴅ ᴡᴀ ʙᴏᴛ ᴅᴇꜱᴇᴅ ᴏɴ ʙᴀɪʏʟᴇꜱ',
-                    renderLargerThumbnail: false
                 }
             }
         }, { qouted: mek });
@@ -91,7 +84,7 @@ cmd({
     pattern: "system",
     desc: "check up time",
     category: "main",
-    react: "📟",
+    react: "✅",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -106,22 +99,14 @@ let snm =`
  *🎉 Version*: 1.0.0
     `;
     
-    await conn.sendMessage(from,{
-        caption:snm,
-        contextInfo: {
+const sentMsg = await conn.sendMessage(from, {
+                caption:snm,
+                contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: 'ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ',
+                    newsletterName: '𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐀 𝐗  𝐘 𝐓',
                     newsletterJid: "120363322195409882@newsletter",
-                },
-                externalAdReply: {
-                    thumbnailUrl: { url: imgUrl },  
-                    sourceUrl: '[https://www.youtube.com/@SlNethuMax](https://www.youtube.com/@SlNethuMax)',
-                    mediaType: 1,
-                    title: '𝗤𝗨𝗘𝗘𝗡-𝗡𝗘𝗧𝗛𝗨-𝗠𝗗',
-                    body: 'ᴀ Qᴜᴇᴇɴ x ᴍᴅ ᴡᴀ ʙᴏᴛ ᴅᴇꜱᴇᴅ ᴏɴ ʙᴀɪʏʟᴇꜱ',
-                    renderLargerThumbnail: false
                 }
             }
        }, { qouted: mek });
@@ -134,18 +119,39 @@ let snm =`
 
 //------------------ status ---------------------//
 
+cmd({
+    pattern: "status",
+    desc: "Check bot status",
+    category: "main",
+    react: "🕹️",
+    filename: __filename
+},
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        // Construct the bot status message
+        const snm = `*QEEN NETHU MD*
+        
+*╭─────────────────◈◈►*
+*│ 👾 Bot Status: Online*
+*│ 📆 Date: ${new Date().toLocaleDateString()}*
+*│ ⏰ Time: ${new Date().toLocaleTimeString()}*
+*╰─────────────────◈◈►
+`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        const sentMsg = await conn.sendMessage(from, {
+                caption:snm,
+                contextInfo: {
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterName: '𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐀 𝐗  𝐘 𝐓',
+                    newsletterJid: "120363322195409882@newsletter",
+                }
+            }
+       }, { qouted: mek });
+        
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+});
