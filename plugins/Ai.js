@@ -15,7 +15,7 @@ const fetch = require('node-fetch');  // Fetch module for making HTTP requests
 cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
   try {
     // URL of the raw JSON file in GitHub repository
-    const jsonUrl = 'https://raw.githubusercontent.com/username/repository-name/branch-name/responses.json';
+    const jsonUrl = 'https://raw.githubusercontent.com/Sl-nethumax/database/refs/heads/main/responses.json';
 
     // Fetch JSON data from the raw URL
     const response = await fetch(jsonUrl);
