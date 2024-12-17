@@ -10,52 +10,44 @@ var cantf  = "*Server Is Busy. Try Again Later.!*"
 
 
 
+const fetch = require('node-fetch');  // Fetch module for making HTTP requests
+
 cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
   try {
-    const config = await readEnv();
+    // URL of the raw JSON file in GitHub repository
+    const jsonUrl = 'https://raw.githubusercontent.com/username/repository-name/branch-name/responses.json';
 
-    // If AUTO_AI is disabled or the user is the owner, return without processing
-    if (config.AUTO_AI === 'true' && !isOwner) {
-      // Extract the query (everything after the command, assuming '.ai' is used as the prefix)
-      const q = body.slice(3).trim();  // Assuming body starts with '.ai' command (adjust accordingly)
-
-      // Check if there is no query or it is empty
-      if (!q) return reply("ඔබට අයුතු ප්‍රශ්නයක් ලබා දීම අවශ්‍යයි. උදා: '.ai ඔයාව හැදුවේ කවුද?'");
-
-      // Handle predefined responses based on questions
-      if (q.toLowerCase() === "ඔයාව හැදුවේ කවුද?" || q.toLowerCase() === "who created you?") {
-        return reply("මාව නිර්මාණය කරේ NETHU-AI. ඔබට කොහොම හෝ උදව් කල හැක.");
-      }
-
-      if (q.toLowerCase() === "කෑවද බන්" || q.toLowerCase() === "ate something?") {
-        return reply("චුට්ට කෑවා 😊");
-      }
-
-      if (q.toLowerCase() === "mokada karanne" || q.toLowerCase() === "මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ") {
-        return reply("මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ");
-      }
-
-      if (q.toLowerCase() === "ඔයා කවුද?" || q.toLowerCase() === "who are you?") {
-        return reply("මම NETHU-AI. කොහොමද ඔබට සහයවිය හැක්කේ?");
-      }
-
-      // API call to fetch a response from the AI service
-      let res = await fetchJson('https://hercai.onrender.com/v3/hercai?question=' + encodeURIComponent(q));
-
-      // Return the AI-generated response
-      return await reply(res.reply);
+    // Fetch JSON data from the raw URL
+    const response = await fetch(jsonUrl);
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch the JSON data from GitHub.');
     }
 
+    const responses = await response.json(); // Parse the JSON response
+
+    // Check if AUTO_AI is enabled
+    const config = await readEnv();
+    
+    if (config.AUTO_AI === 'true') {
+      if (isOwner) return; // If the user is the owner, don't process further
+
+      // Check if the message has a pre-defined response in the JSON file
+      if (responses[body]) {
+        let response = responses[body];
+        await m.reply(response);
+      } else {
+        await m.reply("මට මේ ප්‍රශ්නයට පිලිතුරක් නැහැ.");
+      }
+    }
   } catch (e) {
-    console.log(e);
-    reply("මට ඔබේ ප්‍රශ්නයට උත්තරයක් සොයා ගත නොහැකි විය.");
+    console.error(e);  // Log the full error for debugging
+    await m.reply(`Error: ${e.message || e}`);
   }
 });
 
-
 //========================AI =============================
 
-/*
 cmd({
     pattern: "ai",
     react: '👾',
@@ -75,16 +67,6 @@ async(conn, mek, m, {from, l, prefix, quoted, body, isCmd, command, args, q, isG
         // Check if the user is asking about who created the AI
         if (q.toLowerCase() === "ඔයාව හැදුවේ කවුද?" || q.toLowerCase() === "who created you?") {
             return reply("මාව නිර්මාණය කරේ NETHU-AI. ඔබට කොහොම හෝ උදව් කල හැක.");
-        }
-
-        // Check if the user is asking about eating (colloquial question)
-        if (q.toLowerCase() === "කෑවද බන්" || q.toLowerCase() === "ate something?") {
-            return reply("චුට්ට කෑවා 😊");
-        }
-
-        // Check if the user asks in a casual manner (e.g., "mokada karanne")
-        if (q.toLowerCase() === "mokada karanne" || q.toLowerCase() === "මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ") {
-            return reply("මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ");
         }
 
         // Check if the user asks "ඔයා කවුද?"
