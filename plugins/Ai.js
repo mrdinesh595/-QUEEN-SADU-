@@ -10,58 +10,48 @@ var cantf  = "*Server Is Busy. Try Again Later.!*"
 
 
 
-cmd({
-    pattern: "ai",
-    react: '👾',
-    desc: desct,
-    category: "ai",
-    use: '.chatgpt <query>',
-    filename: __filename
-},
+cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
+  try {
+    const config = await readEnv();
 
-async(conn, mek, m, {from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+    // If AUTO_AI is disabled or the user is the owner, return without processing
+    if (config.AUTO_AI === 'true' && !isOwner) {
+      // Extract the query (everything after the command, assuming '.ai' is used as the prefix)
+      const q = body.slice(3).trim();  // Assuming body starts with '.ai' command (adjust accordingly)
 
-    try {
+      // Check if there is no query or it is empty
+      if (!q) return reply("ඔබට අයුතු ප්‍රශ්නයක් ලබා දීම අවශ්‍යයි. උදා: '.ai ඔයාව හැදුවේ කවුද?'");
 
-        // Automatic reply when a message is received (without a command)
-        if (!isCmd && body) {
-            // Example: Simple reply to any message
-            return reply("ඔබේ පණිවිඩය : " + body);
-        }
+      // Handle predefined responses based on questions
+      if (q.toLowerCase() === "ඔයාව හැදුවේ කවුද?" || q.toLowerCase() === "who created you?") {
+        return reply("මාව නිර්මාණය කරේ NETHU-AI. ඔබට කොහොම හෝ උදව් කල හැක.");
+      }
 
-        if (!q) return reply("ඔබට අයුතු ප්‍රශ්නයක් ලබා දීම අවශ්‍යයි. උදා: '.ai ඔයාව හැදුවේ කවුද?'");
+      if (q.toLowerCase() === "කෑවද බන්" || q.toLowerCase() === "ate something?") {
+        return reply("චුට්ට කෑවා 😊");
+      }
 
-        // Check if the user is asking about who created the AI
-        if (q.toLowerCase() === "ඔයාව හැදුවේ කවුද?" || q.toLowerCase() === "who created you?") {
-            return reply("මාව නිර්මාණය කරේ NETHU-AI. ඔබට කොහොම හෝ උදව් කල හැක.");
-        }
+      if (q.toLowerCase() === "mokada karanne" || q.toLowerCase() === "මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ") {
+        return reply("මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ");
+      }
 
-        // Check if the user is asking about eating (colloquial question)
-        if (q.toLowerCase() === "කෑවද බන්" || q.toLowerCase() === "ate something?") {
-            return reply("චුට්ට කෑවා 😊");
-        }
+      if (q.toLowerCase() === "ඔයා කවුද?" || q.toLowerCase() === "who are you?") {
+        return reply("මම NETHU-AI. කොහොමද ඔබට සහයවිය හැක්කේ?");
+      }
 
-        // Check if the user asks in a casual manner (e.g., "mokada karanne")
-        if (q.toLowerCase() === "mokada karanne" || q.toLowerCase() === "මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ") {
-            return reply("මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ");
-        }
+      // API call to fetch a response from the AI service
+      let res = await fetchJson('https://hercai.onrender.com/v3/hercai?question=' + encodeURIComponent(q));
 
-        // Check if the user asks "ඔයා කවුද?"
-        if (q.toLowerCase() === "ඔයා කවුද?" || q.toLowerCase() === "who are you?") {
-            return reply("මම NETHU-AI. කොහොමද ඔබට සහයවිය හැක්කේ?");
-        }
-
-        // API call to fetch a response from the AI service
-        let res = await fetchJson('https://hercai.onrender.com/v3/hercai?question=' + q);
-
-        return await reply(res.reply);
-
-    } catch (e) {
-        reply("මට ඔබේ ප්‍රශ්නයට උත්තරයක් සොයා ගත නොහැකි විය.");
-        console.log(e);
+      // Return the AI-generated response
+      return await reply(res.reply);
     }
 
+  } catch (e) {
+    console.log(e);
+    reply("මට ඔබේ ප්‍රශ්නයට උත්තරයක් සොයා ගත නොහැකි විය.");
+  }
 });
+
 
 //========================AI =============================
 
