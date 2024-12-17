@@ -10,76 +10,29 @@ var cantf  = "*Server Is Busy. Try Again Later.!*"
 
 
 
-
-const fetch = require('node-fetch');  // Fetch module for making HTTP requests
-const { Configuration, OpenAIApi } = require("openai"); // OpenAI API client
-
-// Create OpenAI API client instance
-const openai = new OpenAIApi(new Configuration({
-  apiKey: process.env.OPENAI_API_KEY, // Your OpenAI API Key
-}));
-
 cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
   try {
-    // URL of the raw JSON file in GitHub repository
-    const jsonUrl = 'https://raw.githubusercontent.com/Sl-nethumax/database/refs/heads/main/responses.json';
-
-    // Fetch JSON data from the raw URL
-    const response = await fetch(jsonUrl);
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch the JSON data from GitHub.');
-    }
-
-    const responses = await response.json(); // Parse the JSON response
-
-    // Check if AUTO_AI is enabled (from configuration)
     const config = await readEnv();
     
     if (config.AUTO_AI === 'true') {
       if (isOwner) return; // If the user is the owner, don't process further
 
-      // Check if the message has a pre-defined response in the JSON file
-      if (responses[body]) {
-        let reply = responses[body];  // Get the response from the JSON file
-        await m.reply(reply);  // Send the response
+      // Fetch response from the custom hercai API
+      let data = await fetchJson(`https://hercai.onrender.com/turbo-16k/hercai?question=${encodeURIComponent(body)}`);
+      
+      // Check if the response contains the 'reply' property
+      if (data && data.reply) {
+        let response = data.reply;
+        await m.reply(response); // Send the response from the API
       } else {
-        // If no predefined response exists, use your custom URL to get a response
-        let reply = await getCustomAPIResponse(body);  // Get the response from your custom URL
-        await m.reply(reply);  // Send the response
+        throw new Error("No response data found from the API.");
       }
     }
   } catch (e) {
     console.error(e);  // Log the full error for debugging
-    await m.reply(`Error: ${e.message || e}`);
+    await m.reply(`Error: ${e.message || e}`); // Send an error message if something goes wrong
   }
 });
-
-// Function to get response from your custom API (https://hercai.onrender.com)
-async function getCustomAPIResponse(question) {
-  try {
-    const url = `https://hercai.onrender.com/turbo-16k/hercai?question=${encodeURIComponent(question)}`;
-    
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch data from the custom API.');
-    }
-    
-    const data = await response.json();  // Assuming the response is in JSON format
-    
-    // Check if the custom API returns a valid response
-    if (data && data.answer) {
-      return data.answer;  // Return the answer from the API response
-    } else {
-      return "මට මේ ප්‍රශ්නයට පිලිතුරක් නැහැ.";  // Default fallback message if no valid response
-    }
-  } catch (error) {
-    console.error("Error fetching response from custom API:", error);
-    return "මට මේ ප්‍රශ්නයට පිලිතුරක් නැහැ.";  // Default error message
-  }
-}
-
 
 
 
