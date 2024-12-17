@@ -86,28 +86,6 @@ async(conn, mek, m, {from, l, prefix, quoted, body, isCmd, command, args, q, isG
 
 });
 
-*/
-/*cmd({
-    pattern: "ai",
-    react: '👾',
-    desc: desct,
-    category: "ai",
-    use: '.chatgpt <query>',
-    filename: __filename
-},
-async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-if(!q) return reply(needus)
-//let res = (await fetchJson('https://hercai.onrender.com/v3/hercai?question=' + q)).response
-let res = await fetchJson('https://hercai.onrender.com/v3/hercai?question='+q)
-
-return await reply(res.reply)
-} catch (e) {
-reply(cantf)
-console.log(e)
-}
-})*/
-
 //==============================CHATGPT============================
 
 cmd({
