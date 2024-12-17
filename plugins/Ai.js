@@ -13,41 +13,48 @@ cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
   try {
     const config = await readEnv();
     
-    if (config.AUTO_AI === 'true') {
-      if (isOwner) return; // If the user is the owner, don't process further
+    // Early check if user is owner
+    if (isOwner) return; // If the user is the owner, don't process further
+    
+    // Ensure there is a body
+    if (!body) return reply("ඔබට අයුතු ප්‍රශ්නයක් ලබා දීම අවශ්‍යයි. උදා: '.ai ඔයාව හැදුවේ කවුද?'");
 
-      // Check if the body contains specific questions
-      if (body.toLowerCase().includes("ඔයාව හැදුවේ කවුද")) {
-        await m.reply("මාව නිර්මාණය කරේ නෙත්මික කෙසේද ඔබට සහය විය හැක්කේ?");
-        return;
-      }
-
-      if (body.toLowerCase().includes("කෑවද බන්")) {
-        await m.reply("චුට්ට කෑවා 😊");
-        return;
-      }
-
-      // Prepare the query for the new API
-      let question = encodeURIComponent(body);
-      
-      // Fetch response from the new API
-      let data = await fetchJson(`https://hercai.onrender.com/v3-32k/hercai?question=${question}`);
-      
-      // Check if the response has the 'response' property
-      if (data && data.response) {
-        let response = data.response;
-
-        // Replace any name found in the response with "නෙත්මික"
-        response = response.replace(/(?:\b[A-Z][a-z]*\b)/g, "නෙත්මික");
-
-        await m.reply(response);
-      } else {
-        throw new Error("No response data found from the API.");
-      }
+    // Convert body to lowercase for easier comparison
+    const q = body.toLowerCase();
+    
+    // Check if the user is asking about who created the AI
+    if (q === "ඔයාව හැදුවේ කවුද?" || q === "who created you?") {
+        return reply("මාව නිර්මාණය කරේ NETHU-AI. ඔබට කොහොම හෝ උදව් කල හැක.");
     }
+
+    // Check if the user is asking about eating (colloquial question)
+    if (q === "කෑවද බන්" || q === "ate something?") {
+        return reply("චුට්ට කෑවා 😊");
+    }
+
+    // Check if the user asks in a casual manner (e.g., "mokada karanne")
+    if (q === "mokada karanne" || q === "මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ") {
+        return reply("මුකුත් නෑ මට මේවෙලාවේ වැඩක් නෑ");
+    }
+
+    // Check if the user asks "ඔයා කවුද?"
+    if (q === "ඔයා කවුද?" || q === "who are you?") {
+        return reply("මම NETHU-AI. කොහොමද ඔබට සහයවිය හැක්කේ?");
+    }
+
+    // Make the API call to fetch the AI response
+    let res = await fetch('https://hercai.onrender.com/v3/hercai?question=' + encodeURIComponent(body))
+        .then(response => response.json())
+        .catch(error => {
+            console.log(error);
+            throw new Error("Failed to fetch from API");
+        });
+
+    return await reply(res.reply);
+
   } catch (e) {
-    console.error(e);  // Log the full error for debugging
-    await m.reply(`Error: ${e.message || e}`);
+    reply("මට ඔබේ ප්‍රශ්නයට උත්තරයක් සොයා ගත නොහැකි විය.");
+    console.log(e);
   }
 });
 
