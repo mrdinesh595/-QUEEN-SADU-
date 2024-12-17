@@ -8,36 +8,6 @@ var desct = "It Search On Chatgpt Ai For What You Provided."
 var needus = "*Please Give Me Words To Search On AI !*" 
 var cantf  = "*Server Is Busy. Try Again Later.!*"
 
-
-
-cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
-  try {
-    const config = await readEnv();
-    
-    if (config.AUTO_AI === 'true') {
-      if (isOwner) return; // If the user is the owner, don't process further
-
-      // Fetch response from the custom hercai API
-      let data = await fetchJson(`https://hercai.onrender.com/turbo-16k/hercai?question=${encodeURIComponent(body)}`);
-      
-      // Check if the response contains the 'reply' property
-      if (data && data.reply) {
-        let response = data.reply;
-        await m.reply(response); // Send the response from the API
-      } else {
-        throw new Error("No response data found from the API.");
-      }
-    }
-  } catch (e) {
-    console.error(e);  // Log the full error for debugging
-    await m.reply(`Error: ${e.message || e}`); // Send an error message if something goes wrong
-  }
-});
-
-
-
-
-
 /*
 const fetch = require('node-fetch');  // Fetch module for making HTTP requests
 
