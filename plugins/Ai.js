@@ -8,20 +8,59 @@ var desct = "It Search On Chatgpt Ai For What You Provided."
 var needus = "*Please Give Me Words To Search On AI !*" 
 var cantf  = "*Server Is Busy. Try Again Later.!*"
 
+
+cmd({ on: "body" }, async (conn, mek, m, { from, body, isOwner }) => {
+  try {
+    const config = await readEnv();
+    
+    if (config.AUTO_AI === 'true') {
+      if (isOwner) return; // If the user is the owner, don't process further
+
+      // Check if the body contains specific questions
+      if (body.toLowerCase().includes("ඔයාව හැදුවේ කවුද")) {
+        await m.reply("මාව නිර්මාණය කරේ නෙත්මික කෙසේද ඔබට සහය විය හැක්කේ?");
+        return;
+      }
+
+      if (body.toLowerCase().includes("කෑවද බන්")) {
+        await m.reply("චුට්ට කෑවා 😊");
+        return;
+      }
+
+      // Prepare the query for the new API
+      let question = encodeURIComponent(body);
+      
+      // Fetch response from the new API
+      let data = await fetchJson(`https://hercai.onrender.com/v3-32k/hercai?question=${question}`);
+      
+      // Check if the response has the 'response' property
+      if (data && data.response) {
+        let response = data.response;
+
+        // Replace any name found in the response with "නෙත්මික"
+        response = response.replace(/(?:\b[A-Z][a-z]*\b)/g, "නෙත්මික");
+
+        await m.reply(response);
+      } else {
+        throw new Error("No response data found from the API.");
+      }
+    }
+  } catch (e) {
+    console.error(e);  // Log the full error for debugging
+    await m.reply(`Error: ${e.message || e}`);
+  }
+});
+
+
 //========================AI =============================
 
+
 cmd({
-
     pattern: "ai",
-
     react: '👾',
-
     desc: desct,
-
     category: "ai",
-
     use: '.chatgpt <query>',
-
     filename: __filename
 
 },
