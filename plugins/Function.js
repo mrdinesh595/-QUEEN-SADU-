@@ -5,7 +5,7 @@ const {readEnv} = require('../lib/database')
 const config = require('../config')
 
 /*
-//auto_voice
+//voice
 cmd({
   on: "body"
 },    
