@@ -39,6 +39,12 @@ _*This queen sadu whatsapp bot is made for your easy use. This bot is currently 
 *Qᴜᴇᴇɴ ꜱᴀᴅᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ*
 *ᴍʀ ᴅɪɴᴇꜱʜ*`;
 
+        await conn.sendMessage(from, {
+            audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/alive.mp3' },
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mak });
+
         // Send the message along with an image
         const sentMsg = await conn.sendMessage(from, {
             image: { url: imgUrl },  // Provide a valid image URL
