@@ -11,7 +11,7 @@ var cantf  = "*Server Is Busy. Try Again Later.!*"
 
 cmd({
     pattern: "ai",
-    react: '👾',
+    react: '🤖',
     desc: desct,
     category: "ai",
     use: '.chatgpt <query>',
@@ -35,7 +35,7 @@ console.log(e)
 cmd({
     pattern: "chatgpt",
     alias: ["gpt","openai","chat"],
-    react: '👾',
+    react: '🤖',
     desc: desct,
     category: "ai",
     use: '.chatgpt <query>',
@@ -58,7 +58,7 @@ console.log(e)
 cmd({
     pattern: "chatgpt2",
     alias: ["ai2","gpt2","openai2","chat2"],
-    react: '👾',
+    react: '🤖',
     desc: desct,
     category: "ai",
     use: '.chatgpt2 <query>',
