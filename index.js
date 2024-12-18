@@ -11,7 +11,7 @@ const axios = require('axios');
 const { File } = require('megajs');
 const moment = require('moment-timezone');
 
-const ownerNumber = ['94787072548'];
+const ownerNumber = ['94724534316'];
 
 //------------------ Session ---------------------//
 
@@ -22,7 +22,7 @@ if (!fs.existsSync(__dirname + '/session/creds.json')) {
     filer.download((err, data) => {
         if (err) throw err;
         fs.writeFile(__dirname + '/session/creds.json', data, () => {
-            console.log("✅ QUEEN NETHU MD | Session downloaded");
+            console.log("✅ QUEEN SADU MD| Session downloaded");
         });
     });
 }
@@ -40,7 +40,7 @@ async function connectToWA() {
     const { readEnv } = require('./lib/database');
     const config = await readEnv();
     const prefix = config.PREFIX;
-    console.log("✅ QUEEN NETHU MD | Connecting");
+    console.log("✅ QUEEN SADU MD | Connecting");
 
 //------------------ setting input ---------------------//
    
@@ -79,7 +79,7 @@ async function connectToWA() {
     let autoreact = config.AUTO_REACT === 'true' ? 'true' : 'false';
     let AI_CHAT_BOT = config.AI_CHAT_BOT === 'true' ? 'true' : 'false';
     let OWNER_REACT = config.OWNER_REACT === 'true' ? 'true' : 'false';
-    let autoBioEnabled = config.autoBioEnabled === 'true' ? 'true' : 'false';
+    let autoBioEnabled = config.autoBioEnabled === 'false' ? 'true' : 'false';
     let AutoTyping = config.AutoTyping === 'true' ? 'true' : 'false';
     let AUTO_READ_CMD = config.AUTO_READ_CMD === 'true' ? 'true' : 'false';
     let AUTO_BLock_212 = config.AUTO_BLock_212 === 'true' ? 'true' : 'false';
@@ -93,19 +93,19 @@ async function connectToWA() {
                 connectToWA();
             }
         } else if (connection === 'open') {
-            console.log('✅ QUEEN NETHU MD | Installing Commands');
+            console.log('✅ QUEEN SADU MD | Installing Commands');
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() === ".js") {
                     require("./plugins/" + plugin);
                 }
             });
-            console.log('✅ QUEEN NETHU MD | Command installed successfully');
-            console.log('✅ QUEEN NETHU MD | Bot connected to WhatsApp');
-            let up = `*𝐐𝐔𝐄𝐄𝐍 𝐍𝐄𝐓𝐇𝐔 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐃𝐄 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 💛*
+            console.log('✅ QUEEN SADU MD | Command installed successfully');
+            console.log('✅ QUEEN SADU MD | Bot connected to WhatsApp');
+            let up = `*𝐐𝐔𝐄𝐄𝐍 𝗦𝗔𝗗𝗨 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐃𝐄 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 💛*
 
 *╭─「 ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴍꜱɢ 」*
-*│OWNER*: ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ
+*│OWNER*: 𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇
 *│NUMBER*: +${ownerNumber}
 *│PREFIX*: ${config.PREFIX}
 *╰───────────◈◈►*
@@ -126,8 +126,8 @@ async function connectToWA() {
 *│ 11*  *Welcome* : *${WELCOME}*
 *╰───────────◈◈►*
 
-> *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ*
-> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
+> *ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ᴡᴀ ʙᴏᴛ ʙʏ Qᴜᴇᴇɴ sadu ᴍᴅ*
+> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ᴍʀ ᴅɪɴᴇꜱʜ*`;
             
             conn.sendMessage(ownerNumber + "@s.whatsapp.net", {
                 image: { url: `https://pomf2.lain.la/f/5wapkl5g.jpg` },
@@ -171,7 +171,7 @@ async function connectToWA() {
 
 if (config.autoBioEnabled === 'true'){
     await
-conn.updateProfileStatus(`QUEEN NETHU MD ${moment.tz('Asia/Colombo').format('HH:mm:ss')}`)
+conn.updateProfileStatus(`QUEEN SADU MD ${moment.tz('Asia/Colombo').format('HH:mm:ss')}`)
 
 }
 
