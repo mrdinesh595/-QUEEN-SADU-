@@ -1,2 +1,2 @@
-# QUEEN-NETHU-MD
-Queen NETHU MD Orginel Repo එක
+# QUEEN-SADU-MD
+Queen SADU MD BOT 
