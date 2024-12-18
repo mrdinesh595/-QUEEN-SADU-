@@ -12,4 +12,6 @@
 
 
 
-[voice add support by 𝐬𝐞𝐧𝐮𝐣𝐢 & 𝐦𝐢𝐡𝐢𝐫𝐢]
+
+
+<h1>voice aded by senuji & mihiri </h1>
