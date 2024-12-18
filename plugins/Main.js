@@ -36,8 +36,8 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
 
 *☘️ Follow our channel:* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A
 
-*Qᴜᴇᴇɴ ɴᴇᴛʜᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ*
-*ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ*`;
+*Qᴜᴇᴇɴ ꜱᴀᴅᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ*
+*ᴍʀ ᴅɪɴᴇꜱʜ*`;
 
         // Send the message along with an image
         const sentMsg = await conn.sendMessage(from, {
@@ -47,7 +47,7 @@ _*This whatsapp bot is made for your easy use. This bot is currently active🪄*
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: '𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐀 𝐗  𝐘 𝐓',
+                    newsletterName: '𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇',
                     newsletterJid: "120363322195409882@newsletter",
                 }
             }
@@ -99,13 +99,13 @@ async (conn, mek, m, { from, prefix, pushname, reply }) => {
         else if (os.hostname().length == 8) hostname = 'koyeb';
         else hostname = os.hostname();
 
-        const sssf = `*QUEEN NETHU MD*
+        const sssf = `*QUEEN SADU*
         
 🎉 *Version :* ${require("../package.json").version}
 🗃️ *Memory :* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
 ⏱️ *Runtime :* ${runtime(process.uptime())}
 📍 *Platform :* ${hostname}
-👤 *Owner :* ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ
+👤 *Owner :* 𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇
 `;
 
         await conn.sendMessage(from, {
@@ -114,7 +114,7 @@ async (conn, mek, m, { from, prefix, pushname, reply }) => {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: '𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐀 𝑋  𝐘 𝐓',
+                    newsletterName: '𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇',
                     newsletterJid: "120363322195409882@newsletter",
                 }
             }
@@ -139,7 +139,7 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         // Construct the bot status message
-        const botStatus = `*QUEEN NETHU MD*
+        const botStatus = `*QUEEN SADU MD*
         
 *╭───────────────◈◈►*
 *│ 👾 Bot Status: Online*
@@ -154,7 +154,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: '𝐍 𝐄 𝐓 𝐇 𝐔  𝐌 𝐀 𝐗  𝐘 𝐓',
+                    newsletterName: '𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇',
                     newsletterJid: "120363322195409882@newsletter",
                 }
             }
