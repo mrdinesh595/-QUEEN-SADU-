@@ -228,14 +228,14 @@ cmd({
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: 'ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ',
+                    newsletterName: 'mr dinesh',
                     newsletterJid: "120363322195409882@newsletter",
                 },
                 externalAdReply: {
                     thumbnailUrl: 'https://pomf2.lain.la/f/hxp64475.jpg',
                     sourceUrl: 'https://www.youtube.com/@SlNethuMax',
-                    title: '🌻 𝚀𝚄𝙴𝙴𝙽 𝚇 𝙼𝙳 🌻',
-                    body: 'ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ',
+                    title: '🌻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙰𝙳𝚄 𝙼𝙳🌻',
+                    body: 'ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙʏ ᴍʀ ᴅɪɴᴇꜱʜ',
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }
@@ -294,12 +294,12 @@ cmd({
                             forwardingScore: 999,
                             isForwarded: true,
                             forwardedNewsletterMessageInfo: {
-                                newsletterName: 'ɴᴇᴛʜᴜ ᴍᴀx ʏᴛ',
+                                newsletterName: 'ᴍʀ ᴅɪɴᴇꜱʜ',
                                 newsletterJid: "120363322195409882@newsletter",
                             },
                             externalAdReply: {
-                                title: '🌻 𝚀𝚄𝙴𝙴𝙽 𝚇 𝙼𝙳 🌻',
-                                body: 'ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴋᴀᴜꜱʜᴀʟʏᴀ',
+                                title: '🌻 𝚀𝚄𝙴𝙴𝙽 𝚂𝙰𝙳𝚄 𝙼𝙳🌻',
+                                body: 'ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙʏ ᴍʀ ᴅɪɴᴇꜱʜ',
                                 mediaType: 1,
                                 sourceUrl: "https://www.youtube.com/@SlNethuMax",
                                 thumbnailUrl: 'https://pomf2.lain.la/f/hxp64475.jpg',
