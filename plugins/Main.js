@@ -3,7 +3,7 @@ const config = require('../config');
 const {readEnv} = require('../lib/database');
 const os = require('os');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, fetchJson, runtime, sleep } = require('../lib/functions');
-const imgUrl = 'https://pomf2.lain.la/f/5wapkl5g.jpg'; // This image URL seems unnecessary
+const imgUrl = 'https://i.ibb.co/h8fkrRF/In-Shot-20241129-183242921.jpg'; // This image URL seems unnecessary
 
 //-----------------------------------------------ALive-----------------------------------------------
 
@@ -27,14 +27,14 @@ async (conn, mek, m, { from, prefix, pushname, reply }) => {
         let monspace = '```';
         const snm = `👋 ${monspace} Hello ${pushname}, I'm alive now ${monspace}
 
-_*This whatsapp bot is made for your easy use. This bot is currently active🪄*_
+_*This queen sadu whatsapp bot is made for your easy use. This bot is currently active🪄*_
 
 > *Version:* ${require("../package.json").version}
 > *Memory:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
 > *Runtime:* ${runtime(process.uptime())}
 > *Hostname:* ${hostname}
 
-*☘️ Follow our channel:* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A
+*☘️ Follow our channel:* https://chat.whatsapp.com/EMRQDL2ANWlJcvs1nw90mv
 
 *Qᴜᴇᴇɴ ꜱᴀᴅᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ*
 *ᴍʀ ᴅɪɴᴇꜱʜ*`;
