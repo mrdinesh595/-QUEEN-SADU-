@@ -9,12 +9,11 @@ const imgUrl = 'https://i.ibb.co/ZhkhGQZ/In-Shot-20241129-183242921.jpg'; // Thi
 
 cmd({
     pattern: "alive",
-    desc: "Check bot online or no.",
+    desc: "Check bot online or not.",
     category: "general",
     react: "🎀",
     filename: __filename
-},
-async (conn, mek, m, { from, prefix, pushname, reply }) => {
+}, async (conn, mek, m, { from, prefix, pushname, reply }) => {
     try {
         let hostname;
         // Determine the hosting service based on the hostname length
@@ -39,13 +38,14 @@ _*This queen sadu whatsapp bot is made for your easy use. This bot is currently 
 *Qᴜᴇᴇɴ ꜱᴀᴅᴜ ᴍᴅ ᴡᴀ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ*
 *ᴍʀ ᴅɪɴᴇꜱʜ*`;
 
+        // Sending the audio message
         await conn.sendMessage(from, {
             audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/alive.mp3' },
-            mimetype: 'audio/mp4',
+            mimetype: 'audio/mp4', // Corrected mime type
             ptt: true
-        }, { quoted: mak });
+        }, { quoted: mek });
 
-        // Send the message along with an image
+        // Sending the image message
         const sentMsg = await conn.sendMessage(from, {
             image: { url: imgUrl },  // Provide a valid image URL
             caption: snm,
@@ -57,11 +57,11 @@ _*This queen sadu whatsapp bot is made for your easy use. This bot is currently 
                     newsletterJid: "120363322195409882@newsletter",
                 }
             }
-        }, { quoted: mek });
+        }, { quoted: mek }); // Replaced 'mak' with 'mek'
 
     } catch (e) {
         reply('*Error !!*');
-        console.log(e);  // You can also log the error to troubleshoot
+        console.log('Error details:', e); // More specific error logging
     }
 });
 
@@ -215,13 +215,6 @@ cmd({
 🦋 *REPLY THE NUMBER YOU WANT TO SELECT*
 `;
 
-
-        await conn.sendMessage(from, {
-            audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/menu.mp3' },
-            mimetype: 'audio/mp4',
-            ptt: true
-        }, { quoted: mak });
-        
         const sentMsg = await conn.sendMessage(from, {
             caption: desc,
             contextInfo: {
