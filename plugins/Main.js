@@ -3,7 +3,7 @@ const config = require('../config');
 const {readEnv} = require('../lib/database');
 const os = require('os');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, fetchJson, runtime, sleep } = require('../lib/functions');
-const imgUrl = 'https://i.ibb.co/h8fkrRF/In-Shot-20241129-183242921.jpg'; // This image URL seems unnecessary
+const imgUrl = 'https://i.ibb.co/ZhkhGQZ/In-Shot-20241129-183242921.jpg'; // This image URL seems unnecessary
 
 //-----------------------------------------------ALive-----------------------------------------------
 
@@ -255,16 +255,16 @@ cmd({
                     let caption = '';
                     switch (selectedOption) {
                         case '1':
-                            caption = `*◈╾──QUEEN X DOWNLOAD MENU──╼◈*\n\n*🔮 Command:* song\n*☁️ Desc:* Download yt audio.\n*⌛ Use:* .song\n\n*🔮 Command:* video\n*☁️ Desc:* Download yt video.\n*⌛ Use:* .video\n\n*🔮 Command:* facebook\n*☁️ Desc:* Download fb video or audio.\n*⌛ Use:* .fb\n\n*🔮 Command:* tiktok\n*☁️ Desc:* Download tt video.\n*⌛ Use:* .tt\n\n*🔮 Command:* apk\n*☁️ Desc:* Download app or game.\n*⌛ Use:* .apk`;
+                            caption = `*◈╾──QUEEN SADU DOWNLOAD MENU──╼◈*\n\n*🔮 Command:* song\n*☁️ Desc:* Download yt audio.\n*⌛ Use:* .song\n\n*🔮 Command:* video\n*☁️ Desc:* Download yt video.\n*⌛ Use:* .video\n\n*🔮 Command:* facebook\n*☁️ Desc:* Download fb video or audio.\n*⌛ Use:* .fb\n\n*🔮 Command:* tiktok\n*☁️ Desc:* Download tt video.\n*⌛ Use:* .tt\n\n*🔮 Command:* apk\n*☁️ Desc:* Download app or game.\n*⌛ Use:* .apk`;
                             break;
                         case '2':
-                            caption = `*◈╾──QUEEN X SEARCH MENU──╼◈*\nhi`;
+                            caption = `*◈╾──QUEEN SADU SEARCH MENU──╼◈*\nhi`;
                             break;
                         case '3':
-                            caption = `*◈╾──QUEEN X CONVERT MENU──╼◈*\nhi`;
+                            caption = `*◈╾──QUEEN SADU CONVERT MENU──╼◈*\nhi`;
                             break;
                         case '4':
-                            caption = `*◈╾──QUEEN X MAIN MENU──╼◈*\n\n*🔮 Command:* alive\n*☁️ Desc:* Check bot online or no.\n*⌛ Use:* .alive\n\n*🔮 Command:* menu\n*☁️ Desc:* Get bot's command list.\n*⌛ Use:* .menu\n\n*🔮 Command:* ping\n*☁️ Desc:* Check bot speed.\n*⌛ Use:* .ping\n\n*🔮 Command:* repo\n*☁️ Desc:* Check bot details.\n*⌛ Use:* .repo\n\n*🔮 Command:* system\n*☁️ Desc:* Bot system details.\n*⌛ Use:* .system`;
+                            caption = `*◈╾──QUEEN SADU MAIN MENU──╼◈*\n\n*🔮 Command:* alive\n*☁️ Desc:* Check bot online or no.\n*⌛ Use:* .alive\n\n*🔮 Command:* menu\n*☁️ Desc:* Get bot's command list.\n*⌛ Use:* .menu\n\n*🔮 Command:* ping\n*☁️ Desc:* Check bot speed.\n*⌛ Use:* .ping\n\n*🔮 Command:* repo\n*☁️ Desc:* Check bot details.\n*⌛ Use:* .repo\n\n*🔮 Command:* system\n*☁️ Desc:* Bot system details.\n*⌛ Use:* .system`;
                             break;
                         case '5':
                             caption = `*◈╾──AI OWNER MENU──╼◈*`;
@@ -302,7 +302,7 @@ cmd({
                                 body: 'ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙʏ ᴍʀ ᴅɪɴᴇꜱʜ',
                                 mediaType: 1,
                                 sourceUrl: "https://www.youtube.com/@SlNethuMax",
-                                thumbnailUrl: 'https://pomf2.lain.la/f/hxp64475.jpg',
+                                thumbnailUrl: 'https://i.ibb.co/ZhkhGQZ/In-Shot-20241129-183242921.jpg',
                                 renderLargerThumbnail: false,
                                 showAdAttribution: true
                             }
