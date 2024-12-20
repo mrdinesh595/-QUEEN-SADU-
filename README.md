@@ -14,13 +14,6 @@
     
 
   
-## 𝟏. 𝐒𝐄𝐓 𝐔𝐏:
-
-**👇FORK REPO(A MUST)**
-<details>
-<summary>𝗖𝗟𝗜𝗖𝗞 𝗛𝗘𝗥𝗘</summary>
-  
-- This is essential for you to obtain your own safe forked deployable repo especially heroku users.
 
 <a href="https://github.com/mouricedevs/gifted/fork"><img src="https://img.shields.io/badge/CLICK%20HERE-purple" alt="FORK GIFTED-MD" width="150"></a>
 </details>
