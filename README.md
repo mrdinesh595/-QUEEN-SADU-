@@ -1,4 +1,4 @@
-              <h1>𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔-𝐌𝐃</h1>
+<h1>𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔-𝐌𝐃</h1>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 <div align="center" class= "main"> 
