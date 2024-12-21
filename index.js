@@ -11,7 +11,7 @@ const axios = require('axios');
 const { File } = require('megajs');
 const moment = require('moment-timezone');
 
-const ownerNumber = ['94724534316'];
+const ownerNumber = ['94723449646'];
 
 //------------------ Session ---------------------//
 
@@ -102,7 +102,7 @@ async function connectToWA() {
             });
             console.log('✅ QUEEN SADU MD | Command installed successfully');
             console.log('✅ QUEEN SADU MD | Bot connected to WhatsApp');
-            let up = `*𝐐𝐔𝐄𝐄𝐍 𝗦𝗔𝗗𝗨 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐃𝐄 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 💛*
+            let up = `*𝐐𝐔𝐄𝐄𝐍 𝗦𝗔𝗗𝗨 𝐌𝐃 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝗖𝗘 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏 𝐁𝐎𝐓 💛*
 
 *╭─「 ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴍꜱɢ 」*
 *│OWNER*: 𝐌𝐑 𝐃𝐈𝐍𝐄𝐒𝐇
@@ -130,7 +130,7 @@ async function connectToWA() {
 > *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ᴍʀ ᴅɪɴᴇꜱʜ*`;
             
             conn.sendMessage(ownerNumber + "@s.whatsapp.net", {
-                image: { url: `https://pomf2.lain.la/f/5wapkl5g.jpg` },
+                image: { url: `https://i.ibb.co/h8fkrRF/In-Shot-20241129-183242921.jpg` },
                 caption: up
             });
         }
