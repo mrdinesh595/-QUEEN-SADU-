@@ -94,7 +94,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *│ 9   OTHER*
 *╰─────────
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`;
+> 𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃;
 
         await conn.sendMessage(from, {
             audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/menu.mp3' },
@@ -119,7 +119,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *restart* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                         break;
                     case '2':               
                         reply(`*◈╾──CONVERT MENU──╼◈*
@@ -128,7 +128,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *convert* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                         break;
                     case '3':               
                         reply(`*◈╾──AI MENU──╼◈*
@@ -137,7 +137,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *ai* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                         break;
                     case '4':               
                         reply(`*◈╾──SEARCH MENU──╼◈*
@@ -149,7 +149,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *srepo* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                         break;
                     case '5':               
                         reply(`*◈╾──DOWNLOAD MENU──╼◈*
@@ -197,7 +197,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *img* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                         break;
                     case '7':               
                         reply(`*◈╾──MAIN MENU──╼◈*
@@ -227,7 +227,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *runtime* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                         break;
                     case '8':               
                         reply(`*◈╾──GROUP MENU──╼◈*
@@ -266,7 +266,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *gname* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
                        break;
                     case '6':               
                         reply(`*◈╾──FUN MENU──╼◈*
@@ -284,7 +284,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *quote* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
 
                         break;
                     case '9':               
@@ -300,7 +300,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 │ 🎀 *weather* 
 ╰──────────────────●●►
 
-> *Qᴜᴇᴇɴ ᴄʜᴏᴏᴛʏ ɴᴇʟᴜᴍɪ ᴍᴅ*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃`);
 
 
                         break;
