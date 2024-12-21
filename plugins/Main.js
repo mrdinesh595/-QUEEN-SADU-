@@ -94,7 +94,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *│ 9   OTHER*
 *╰─────────
 
-> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`);
+> *𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔 𝐌𝐃*`;
+
 
         await conn.sendMessage(from, {
             audio: { url: 'https://github.com/mrdinesh595/Mssadu/raw/refs/heads/main/database/menu.mp3' },
