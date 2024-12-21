@@ -32,6 +32,14 @@
 
 
 
+### 𝟐. 𝐋𝐈𝐍𝐊 𝐖𝐈𝐓𝐇 𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏
+
+<details>
+<summary>GET YOUR SESSION_ID</summary>
+<a href="https://session.giftedtech.my.id"><img src="https://img.shields.io/badge/CLICK%20HERE-green" alt="Pairing Code" width="150"></a>
+
+- Session ID must start with **queen sadu** and is 15 characters in length.
+</details>
 
 
 
