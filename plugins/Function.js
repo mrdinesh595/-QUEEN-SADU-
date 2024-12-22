@@ -5,7 +5,7 @@ const {readEnv} = require('../lib/database')
 const config = require('../config')
 
 
-// Command handler
+// auto voice
 cmd({
   on: "body"
 }, async (conn, mek, m, { from, body, isOwner }) => {
