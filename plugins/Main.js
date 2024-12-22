@@ -3,7 +3,7 @@ const config = require('../config');
 const {readEnv} = require('../lib/database');
 const os = require('os');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, fetchJson, runtime, sleep } = require('../lib/functions');
-const imgUrl = 'https://github.com/mrdinesh595/Mssadu/blob/13c2c67775fa2dff2143b96e188a9f895bdd1788/database/InShot_20241222_002123636.jpg'; // This image URL seems unnecessary
+const imgUrl = 'https://i.postimg.cc/xdMvP3XZ/In-Shot-20241222-002123636.jpg'; // This image URL seems unnecessary
 
 //-----------------------------------------------ALive-----------------------------------------------
 
@@ -103,7 +103,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             ptt: true
         }, { quoted: mek });
 
-        const vv = await conn.sendMessage(from, { image: { url: "https://github.com/mrdinesh595/Mssadu/blob/13c2c67775fa2dff2143b96e188a9f895bdd1788/database/InShot_20241222_002123636.jpg"}, caption: desc }, { quoted: mek });
+        const vv = await conn.sendMessage(from, { image: { url: "https://i.postimg.cc/xdMvP3XZ/In-Shot-20241222-002123636.jpg"}, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
