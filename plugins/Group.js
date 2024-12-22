@@ -212,7 +212,7 @@ try{
 if (!isGroup) return reply(ONLGROUP)
 if (!isBotAdmins) return reply(botAdmin)
 if (!isAdmins) return reply(ADMIN)
-let teks = ` *ＱＵＥＥＮ Ｘ ＧＲＯＵＰ  ＮＯＴＩＦＹ*
+let teks = ` *ＱＵＥＥＮ SADU ＧＲＯＵＰ  ＮＯＴＩＦＹ*
                    
 *𝐌𝐄𝐒𝐒𝐀𝐆𝐄 : ${q ? q : 'blank'}*\n\n`
 for (let mem of participants) {
