@@ -32,7 +32,7 @@
 
 
 
-
+<https://gpt-qr-code.onrender.com/>
 
 
 
