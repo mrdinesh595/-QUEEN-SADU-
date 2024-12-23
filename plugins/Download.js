@@ -292,7 +292,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 *👨‍💻 Qᴜᴇᴇɴ 𝚜𝚊𝚍𝚞 𝚋𝚢 𝚖𝚛 𝚍𝚒𝚗𝚎𝚜𝚑 👨‍💻*`;
 
-        const vv = await conn.sendMessage(from, { image: { url:"https://pomf2.lain.la/f/hxp64475.jpg"}, caption: desc }, { quoted: mek });
+        const vv = await conn.sendMessage(from, { image: { url:"https://i.postimg.cc/xdMvP3XZ/In-Shot-20241222-002123636.jpg"}, caption: desc }, { quoted: mek });
         
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
