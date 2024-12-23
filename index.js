@@ -11,7 +11,7 @@ const axios = require('axios');
 const { File } = require('megajs');
 const moment = require('moment-timezone');
 
-const ownerNumber = ['94724534316'];
+const ownerNumber = ['94788001464];
 
 //------------------ Session ---------------------//
 
