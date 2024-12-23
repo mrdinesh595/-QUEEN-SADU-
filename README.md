@@ -1,3 +1,14 @@
+<div align="center">
+
+
+ [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F01&lines=QUEEN-SADU+ＭＤ+V1+ＷＨＡＴＳＡＰＰ+ＢＯＴ)](https://git.io/typing-svg)
+<img src="https://i.imgur.com/dBaSKWF.gif" height="90" width="100%">
+
+<p align="center">
+<a href="https://github.com/ASITHA-MD/ASITHA-MD-V2">
+    <img src=https://i.ibb.co/0GhKf6N/20241120-113020.jpg"  width="700px">
+
+
 <h1>𝐐𝐔𝐄𝐄𝐍 𝐒𝐀𝐃𝐔-𝐌𝐃</h1>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
