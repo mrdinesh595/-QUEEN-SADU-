@@ -27,16 +27,13 @@
 
 <b>GET SESSION ID VIA PAIR CODE 01</b>
 
-<a href='https://gpt-qr-code.onrender.com/
-/' target="_blank"><img alt='Get Session ID' src='https://img.shields.io/badge/Click here to get your session id-blue?style=for-the-badge&logo=opencv&logoColor=white'/></a>
-
-
-
-
 <p align="left">
 <a href="https://sobia-md-pair.onrender.com/pair"><img height= "35" title="Author" src="https://img.shields.io/badge/Session-black?style=for-the-badge&logo=render"></a>
 <p/>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
+
+
 
 
 
