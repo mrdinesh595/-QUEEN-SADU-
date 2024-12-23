@@ -18,7 +18,7 @@
   
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-<a><img src='https://i.imgurhref='https://pair-code-production.up.railway.app.com/LyHic3i.gif'/></a>
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
     
 
@@ -33,7 +33,7 @@
 
 
 
-<https://gpt-qr-code.onrender.com/>
+
 
 
 
