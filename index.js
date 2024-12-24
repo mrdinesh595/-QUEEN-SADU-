@@ -11,7 +11,7 @@ const axios = require('axios');
 const { File } = require('megajs');
 const moment = require('moment-timezone');
 
-const ownerNumber = ['94724534316'];
+const ownerNumber = ['+94 78 800 1464'];
 
 //------------------ Session ---------------------//
 
@@ -130,7 +130,7 @@ async function connectToWA() {
 > *ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ᴍʀ ᴅɪɴᴇꜱʜ*`;
             
             conn.sendMessage(ownerNumber + "@s.whatsapp.net", {
-                image: { url: `https://pomf2.lain.la/f/5wapkl5g.jpg` },
+                image: { url: `https://i.postimg.cc/xdMvP3XZ/In-Shot-20241222-002123636.jpg` },
                 caption: up
             });
         }
